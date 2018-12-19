@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<link rel="stylesheet" href="../css/style.css">
+		<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+
+$(function(){
+    
+    $("#f_button").on("click", function(){
+        if($(this).hasClass("selected")){
+            return;
+        }
+        if($("#k_button").hasClass("selected")){
+        $("#k_button").removeClass("selected");
+        $(this).addClass("selected");
+        
+        $(".temperature").html(function(i, content){
+            content = parseInt(content);
+            content =  9/5 * (content - 273.15) + 32;
+            content = Math.round(content);
+            return content + "° F";
+        });
+		}else if($("#c_button").hasClass("selected")){		
+						
+        $("#c_button").removeClass("selected");
+        $(this).addClass("selected");
+        
+        $(".temperature").html(function(i, content){
+            content = parseInt(content);
+            content = content * 9 / 5 + 32;
+            content = Math.round(content);
+            return content + "° F";
+        });
+    }
+    });
+	
+	$("#c_button").on("click", function(){
+        if($(this).hasClass("selected")){
+            return;
+        }
+        if($("#k_button").hasClass("selected")){
+        $("#k_button").removeClass("selected");
+        $(this).addClass("selected");
+        $(".temperature").html(function(i, content){
+            content = parseInt(content);
+            content = content - 273.15;
+            content = Math.round(content);
+            return content + "° C";
+        });
+		}else if($("#f_button").hasClass("selected")){
+        $("#f_button").removeClass("selected");
+        $(this).addClass("selected");
+        
+        $(".temperature").html(function(i, content){
+            content = parseInt(content);
+            content = (content - 32) * 5/9;
+            content = Math.round(content);
+            return content + "° C";
+        });
+		}
+    
+    });
+	
+		
+	$("#k_button").on("click", function(){
+        if($(this).hasClass("selected")){
+            return;
+        }
+        if($("#f_button").hasClass("selected")){
+            $("#f_button").removeClass("selected");
+        $(this).addClass("selected");
+		
+		$(".temperature").html(function(i, content){
+            content = parseInt(content);
+            content = (content + 459.67) * 5 / 9;
+            content = Math.round(content);
+            return content + "° K";
+        });
+		
+		
+        }else if($("#c_button").hasClass("selected")){
+            $("#c_button").removeClass("selected");
+        $(this).addClass("selected");
+		
+		 $(".temperature").html(function(i, content){
+            content = parseInt(content);
+            content = content + 273.15;
+            content = Math.round(content);
+            return content + "° K";
+        });
+		
+        }
+        
+              
+    
+    });
+    
+});    
+
+</script>		
+	</head>
+	<body>
+
+		<h1>JavaScript Example</h1>
+
+		<div class="header">
+			<div class="header-top">
+				<h2><i class="fas fa-2x fa-sun" style="position:relative;top:8px;color:#e3b63d"></i> Weather Forecast</h2>
+				<ul>
+					<li><p id="c_button" class="selected">°C</p></li>
+					<li><p id="f_button">°F</p></li>
+					<li><p id="k_button">°K</p></li>
+				</ul>
+				<div class="clear"> </div>
+			</div>
+			
+			<div class="header-bottom">
+			
+				<div class="header-bottom1">
+					<div class="header-head">
+						<h4>Cloudy</h4>
+						<i class="fas fa-3x fa-cloud-sun"></i>
+						<h6 class="temperature">20° C</h6>
+						<div class="bottom-head">
+							<p>August 16</p>
+							<p>Monday</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="header-bottom1 header-bottom2">
+					<div class="header-head">
+						<h4>Sunny</h4>
+						<i class="far fa-3x fa-sun"></i>
+						<h6 class="temperature">37° C</h6>
+						<div class="bottom-head">
+							<p>August 17</p>
+							<p>Tuesday</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="header-bottom1">
+					<div class="header-head">
+						<h4>Rainy</h4>
+						<i class="fas fa-3x fa-cloud-rain"></i>
+						<h6 class="temperature">7° C</h6>
+						<div class="bottom-head">
+							<p>August 18</p>
+							<p>Wednesday</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="header-bottom1 header-bottom2">
+					<div class="header-head">
+						<h4>Snowy</h4>
+						<i class="far fa-3x fa-snowflake"></i>
+						<h6 class="temperature">-10° C</h6>
+						<div class="bottom-head">
+							<p>August 16</p>
+							<p>Thursday</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="clear"> </div>
+				
+			</div>
+	</div>
+	
+	
+</body>
+</html>
