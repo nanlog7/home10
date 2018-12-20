@@ -23,14 +23,14 @@ Highcharts.chart('container', {
       year: '%b'
     },
     title: {
-      text: 'Date'
+      text: 'Даты'
     }
   },
     
   
   yAxis: {
     title: {
-      text: 'Temperature'
+      text: 'Температура °С'
     },
     labels: {
       format: '{value}°'
@@ -44,7 +44,7 @@ Highcharts.chart('container', {
   tooltip: {
   crosshairs: true,
     
-    pointFormat: '{point.y}°C'
+    pointFormat: '{series.name}: <b>{point.y}°C</b>'
   },
   plotOptions: {
     spline: {
@@ -54,7 +54,7 @@ Highcharts.chart('container', {
     }
   },
   series: [{
-    name: 'Temperature',
+    name: 'Температура',
     data: [[Date.UTC(2018, 10, 05), 10], [Date.UTC(2018, 10, 06), 16.4], [Date.UTC(2018, 10, 07), 3], [Date.UTC(2018, 10, 08), 8.5], [Date.UTC(2018, 10, 09), 10.4],
       [Date.UTC(2018, 10, 10), 8.8], [Date.UTC(2018, 10, 11), 7.5]]
   }]
