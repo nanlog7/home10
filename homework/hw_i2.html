@@ -1,0 +1,62 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<script>
+Highcharts.chart('container', {
+  chart: {
+    type: 'spline',
+    inverted: false
+  },
+  title: {
+    text: 'Тумпература воздуха за неделю'
+  },
+  /*subtitle: {
+    text: 'According to the Standard Atmosphere Model'
+  },*/
+  xAxis: {
+    reversed: false,
+    title: {
+      enabled: true,
+      text: 'Даты'
+    },
+    labels: {
+      format: '{value}.Nov'
+    },
+    maxPadding: 0.05,
+    showLastLabel: true
+	
+  },  
+  yAxis: {
+    title: {
+      text: 'Temperature'
+    },
+    labels: {
+      format: '{value}°'
+    },
+    lineWidth: 2
+  },
+  
+  legend: {
+    enabled: false
+  },
+  tooltip: {
+  crosshairs: true,
+    headerFormat: '<b>{series.name}</b><br/>',
+    pointFormat: '{point.x}.Nov : {point.y}°C'
+  },
+  plotOptions: {
+    spline: {
+      marker: {
+        enable: false
+      }
+    }
+  },
+  series: [{
+    name: 'Temperature',
+    data: [[5, 10], [6, 16.4], [7, 3], [8, 8.5], [9, 10.4],
+      [10, 8.8], [11, 7.5]]
+  }]
+});
+</script>
