@@ -1,0 +1,62 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<script>
+Highcharts.chart('container', {
+  chart: {
+    type: 'spline',
+    inverted: false
+  },
+  title: {
+    text: 'Тумпература воздуха за неделю'
+  },
+  /*subtitle: {
+    text: 'According to the Standard Atmosphere Model'
+  },*/
+ 
+     xAxis: {
+    type: 'datetime',
+    dateTimeLabelFormats: { // don't display the dummy year
+      month: '%e. %b',
+      year: '%b'
+    },
+    title: {
+      text: 'Date'
+    }
+  },
+    
+  
+  yAxis: {
+    title: {
+      text: 'Temperature'
+    },
+    labels: {
+      format: '{value}°'
+    },
+    lineWidth: 2
+  },
+  
+  legend: {
+    enabled: false
+  },
+  tooltip: {
+  crosshairs: true,
+    headerFormat: '<b>{series.name}</b><br/>',
+    pointFormat: '{point.x:%e. %b} : {point.y}°C'
+  },
+  plotOptions: {
+    spline: {
+      marker: {
+        enable: false
+      }
+    }
+  },
+  series: [{
+    name: 'Temperature',
+    data: [[Date.UTC(2018, 10, 05), 10], [Date.UTC(2018, 10, 06), 16.4], [Date.UTC(2018, 10, 07), 3], [Date.UTC(2018, 10, 08), 8.5], [Date.UTC(2018, 10, 09), 10.4],
+      [Date.UTC(2018, 10, 10), 8.8], [Date.UTC(2018, 10, 11), 7.5]]
+  }]
+});
+</script>
