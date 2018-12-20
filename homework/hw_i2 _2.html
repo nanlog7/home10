@@ -2,7 +2,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div id="container" style="min-width: 310px; height: 400px; max-width: 900px; margin: 0 auto"></div>
 <script>
 Highcharts.chart('container', {
   chart: {
@@ -43,8 +43,8 @@ Highcharts.chart('container', {
   },
   tooltip: {
   crosshairs: true,
-    headerFormat: '<b>{series.name}</b><br/>',
-    pointFormat: '{point.x:%e. %b} : {point.y}°C'
+    
+    pointFormat: '{point.y}°C'
   },
   plotOptions: {
     spline: {
